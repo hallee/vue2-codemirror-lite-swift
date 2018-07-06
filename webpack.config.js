@@ -42,10 +42,5 @@ module.exports = {
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         // new BundleAnalyzerPlugin() // un-comment to generate bundle report
-    ],
-    devServer: {
-        contentBase: path.join(__dirname, './dist'),
-        compress: true,
-        port: 9000
-    }
+    ]
 }
