@@ -1,0 +1,52 @@
+{
+  "name": "vue2-codemirror-lite-swift",
+  "version": "1.0.0",
+  "description": "Lite Codemirror component for Swift code / Vue.js 2.x",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack --config webpack.config.js && node_modules/.bin/webpack-dev-server --open --watch",
+    "deploy": "git push origin `git subtree split --prefix demo master`:gh-pages --force",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hallee/vue2-codemirror-lite-swift"
+  },
+  "keywords": [
+    "vue-codemirror",
+    "vue codemirror",
+    "codemirror",
+    "vue",
+    "vue codemirror lite swift",
+    "vue-codemirror-lite-swift"
+  ],
+  "author": {
+    "name": "Hal Lee",
+    "url": "https://hal.codes"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hallee/vue2-codemirror-lite-swift/issues"
+  },
+  "homepage": "https://github.com/hallee/vue2-codemirror-lite-swift#readme",
+  "dependencies": {
+    "codemirror": "^5.34.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-export-extensions": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.17.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "style-loader": "^0.13.1",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "v2.6.0",
+    "webpack-bundle-analyzer": "^2.2.1",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
