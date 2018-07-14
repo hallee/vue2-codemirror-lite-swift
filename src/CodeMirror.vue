@@ -33,11 +33,9 @@ export default {
           extraKeys: this.keyMap,
           mode: mode,
           readOnly: this.readonly,
-          line: true,
           lineNumbers: true,
           lineWrapping: true,
-          lint: true,
-          gutters: ['CodeMirror-linenumbers', 'CodeMirror-lint-markers'],
+          indentWithTabs: false,
           highlightSelectionMatches: { minChars: 1 },
           matchBrackets: true,
           autoCloseBrackets: true,
@@ -116,11 +114,6 @@ export default {
     this.editor = CodeMirror.fromTextArea(this.$el, options)
     this.editor.setValue(this.code || this.value || this.content)
     this.editor.addKeyMap(this.keyMap)
-    this.editor.on('beforeChange', (cm, changeObj) => {
-      if (changeObj.origin === 'undo' && this.changesCounter === 1) {
-        changeObj.cancel()
-      }
-    })
     this.editor.on('change', (cm, changeObj) => {
       this.updateChangesCounter(changeObj.origin)
       this.firstLoaded = false

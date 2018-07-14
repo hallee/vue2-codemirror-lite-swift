@@ -27,7 +27,7 @@
   color: #abb2bf !important;
   background-color: transparent;
 }
-.cm-s-one-dark .CodeMirror-cursor {border-left: 2px solid #56b6c2 !important;}
+.cm-s-one-dark .CodeMirror-cursor {border-left: 2px solid #56b6c2;}
 /* addon: edit/machingbrackets.js & addon: edit/matchtags.js */
 .cm-s-one-dark .CodeMirror-matchingbracket,
 .cm-s-one-dark .CodeMirror-matchingtag {
