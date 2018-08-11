@@ -12,7 +12,7 @@
   color: #abb2bf;
   background-color: #282c34;
 }
-.cm-s-one-dark .CodeMirror-selected {background-color: #3e4451;}
+.cm-s-one-dark .CodeMirror-selected {background-color: #3B3D41;}
 .cm-s-one-dark .CodeMirror-gutter,
 .cm-s-one-dark .CodeMirror-gutters {
   border: none;
@@ -22,6 +22,9 @@
 .cm-s-one-dark .CodeMirror-linenumbers {
   color: #5c6370 !important;
   background-color: transparent;
+}
+.cm-s-one-dark .CodeMirror-linenumbers {
+  margin-right: 0.2em;
 }
 .cm-s-one-dark .CodeMirror-lines {
   color: #abb2bf !important;
