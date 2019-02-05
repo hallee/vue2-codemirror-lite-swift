@@ -1,46 +1,61 @@
-var path = require('path')
-var webpack = require('webpack')
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+const mode = process.env.NODE_ENV !== 'development' ? 'production' : 'development'
 
 module.exports = {
-    entry: './src/index.js',
-    output: {
-        path: __dirname + '/dist',
-        filename: 'index.js',
-        libraryTarget: 'umd',
-        library: 'CodeMirror',
-        umdNamedDefine: true
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                include: path.resolve(__dirname, './'),
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader'
-            }
-        ]
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env':{
-                'NODE_ENV': JSON.stringify('dev')
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        // new BundleAnalyzerPlugin() // un-comment to generate bundle report
+  mode: mode,
+  entry: './src/index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: 'index.js',
+    libraryTarget: 'umd',
+    library: 'CodeMirror',
+    umdNamedDefine: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          productionMode: mode === 'production'
+        }
+      },
+      {
+        test: /\.js$/i,
+        exclude: file => (
+          /node_modules/.test(file) &&
+          !/\.vue\.js/.test(file)
+        ),
+        loader: 'babel-loader'
+      }
     ]
+  },
+  optimization: {
+    minimizer: [new TerserPlugin({
+      parallel: true,
+      terserOptions: {
+        compress: {
+          booleans: true,
+          if_return: true,
+          sequences: true,
+          unused: true,
+          conditionals: true,
+          dead_code: true,
+          evaluate: true
+        },
+      }
+    })]
+  },
+  plugins: [
+    new VueLoaderPlugin(),
+    // new BundleAnalyzerPlugin() // un-comment to generate bundle report
+  ]
 }

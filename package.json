@@ -29,21 +29,20 @@
   },
   "homepage": "https://github.com/hallee/vue2-codemirror-lite-swift#readme",
   "dependencies": {
-    "codemirror": "^5.34.0"
+    "codemirror": "^5.43.0"
   },
   "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-export-extensions": "^6.8.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-3": "^6.17.0",
-    "css-loader": "^0.26.1",
-    "extract-text-webpack-plugin": "^2.1.2",
-    "style-loader": "^0.13.1",
-    "vue-loader": "^10.0.2",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "v2.6.0",
-    "webpack-bundle-analyzer": "^2.2.1"
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.2",
+    "vue-loader": "^15.6.2",
+    "vue-template-compiler": "^2.6.2",
+    "webpack": "^4.29.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.2.3"
   }
 }
