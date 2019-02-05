@@ -1,6 +1,6 @@
 {
   "name": "vue2-codemirror-lite-swift",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lite Codemirror component for Swift code / Vue.js 2.x",
   "main": "./dist/index.js",
   "scripts": {
