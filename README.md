@@ -11,9 +11,9 @@ npm install vue2-codemirror-lite-swift --save-dev # yarn add vue2-codemirror-lit
 ### Usage
 
 ```js
-import { codemirror } from 'vue2-codemirror-lite-swift'
+import CodeMirrorSwift from 'vue2-codemirror-lite-swift'
 ```
 
 ```vue
-<codemirror v-model="code" />
+<CodeMirrorSwift v-model="code" />
 ```

@@ -1,10 +1,23 @@
-const CodeMirror = require('codemirror/lib/codemirror.js')
-const CmComponent = require('./CodeMirror.vue')
+import component from './CodeMirrorSwift.vue';
 
-module.exports = {
-  CodeMirror: CodeMirror,
-  codemirror: CmComponent,
-  install: function(Vue) {
-    Vue.component('codemirror', CmComponent)
-  }
+export function install(Vue) {
+	if (install.installed) return;
+	install.installed = true;
+	Vue.component('CodeMirrorSwift', component);
 }
+
+const plugin = {
+	install,
+};
+
+let GlobalVue = null;
+if (typeof window !== 'undefined') {
+	GlobalVue = window.Vue;
+} else if (typeof global !== 'undefined') {
+	GlobalVue = global.Vue;
+}
+if (GlobalVue) {
+	GlobalVue.use(plugin);
+}
+
+export default component;
